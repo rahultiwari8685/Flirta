@@ -1,7 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { io } from 'socket.io-client'
 
-const socket = io('http://localhost:5000') // change URL if needed
+// const socket = io('http://localhost:5000') 
+
+const socket = io(
+  process.env.REACT_APP_SOCKET_SERVER === 'production'
+    ? window.location.origin
+    : 'http://localhost:5000'
+);
 
 function App() {
   const [status, setStatus] = useState('Connecting...')
