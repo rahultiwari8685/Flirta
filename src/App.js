@@ -150,7 +150,7 @@ function App() {
         }}
         onClick={() => {
           cleanupConnection()
-          socket.emit('join') // requeue user
+          socket.emit('join')
         }}
       >
         Next Partner
